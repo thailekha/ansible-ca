@@ -1,18 +1,18 @@
 ---
  - hosts: localhost
    connection: local
-   gather_facts: true
-   user: root
+   gather_facts: false
+   # user: ubuntu
    pre_tasks:
     - include_vars: /mnt/vagrant/ansible-sample/roles/provision-ec2-instance/vars/{{type}}.yml
    roles:
    - provision-ec2-instance 
  
- - hosts: all
-   gather_facts: true
-   become: yes
-   pre_tasks:
-    - include_vars: ~/Documents/Ansible/ec2-vars/{{type}}.yml
-   roles:
-   - nginx
+ # - hosts: all
+ #   gather_facts: true
+ #   become: yes
+ #   pre_tasks:
+ #    - include_vars: ~/Documents/Ansible/ec2-vars/{{type}}.yml
+ #   roles:
+ #   - nginx
 

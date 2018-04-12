@@ -8,7 +8,7 @@
       ec2:
          key_name: cloudAnsibleLab
          region: eu-west-1
-         group: sg-a16b77db
+         group: CloudAnsibleLab-HTTP
          instance_type: t2.micro
          image: ami-3bfab942
          wait: true

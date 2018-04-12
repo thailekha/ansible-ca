@@ -1,7 +1,7 @@
 ec2_keypair: "cloudAnsibleLab"
 ec2_security_group: "sg-a16b77db"
 ec2_instance_type: "t2.micro"
-ec2_image: "ami-3bfab942"
+ec2_image: "ami-f90a4880"
 ec2_subnet_ids: ['subnet-12932249','subnet-04ff834d','subnet-588aff3f']
 ec2_region: "eu-west-1"
 ec2_tag_Name: "Webserver"
