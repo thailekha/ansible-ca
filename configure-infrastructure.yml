@@ -6,12 +6,12 @@
    - name: Dump all vars
      action: template src=dumpall.j2 dest=allvars.log
 
- # - hosts: tag_Type_webservers
- #   gather_facts: false
- #   user: ubuntu
- #   become: yes
- #   roles:
- #   - nginx
+ - hosts: tag_Type_webservers
+   gather_facts: false
+   user: ubuntu
+   become: yes
+   roles:
+   - nginx
 
  - hosts: tag_Type_haproxyserver
    gather_facts: false
