@@ -1,6 +1,11 @@
-haproxy_app_name: "test"
-haproxy_mode: "http"
-haproxy_enable_stats: "enable"
-haproxy_algorithm: "roundrobin"
-haproxy_stats_users:
-  - {username: admin, password: admin}
+ec2_keypair: "thai-cloudansible"
+ec2_security_group: "sg-c5f5508c"
+ec2_instance_type: "t2.micro"
+ec2_image: "ami-38708b45"
+ec2_subnet_ids: ['subnet-f1a13edd']
+ec2_region: "us-east-1"
+ec2_tag_Name: "Haproxy server"
+ec2_tag_Type: "haproxyserver"
+ec2_tag_Environment: "production"
+ec2_volume_size: 8
+count: 1

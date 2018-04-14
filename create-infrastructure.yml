@@ -1,0 +1,9 @@
+---
+ - hosts: localhost
+   connection: local
+   gather_facts: false
+   user: ubuntu
+   pre_tasks:
+    - include_vars: roles/provision-ec2-instance/vars/{{type}}.yml
+   roles:
+   - provision-ec2-instance

@@ -1,0 +1,6 @@
+haproxy_app_name: "test"
+haproxy_mode: "http"
+haproxy_enable_stats: "enable"
+haproxy_algorithm: "roundrobin"
+haproxy_stats_users:
+  - {username: admin, password: admin}

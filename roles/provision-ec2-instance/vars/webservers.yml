@@ -8,4 +8,4 @@ ec2_tag_Name: "Webserver"
 ec2_tag_Type: "webservers"
 ec2_tag_Environment: "production"
 ec2_volume_size: 8
-count: 1
+count: 2
