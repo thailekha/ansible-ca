@@ -1,2 +1,2 @@
-[webservers]
-52.90.34.22 ansible_ssh_user=ubuntu ansible_ssh_pass=dummy
+[loadbalancer]
+35.171.3.225

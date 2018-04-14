@@ -1,0 +1,25 @@
+---
+ - hosts: localhost
+   connection: local
+   gather_facts: true
+   user: ubuntu
+   pre_tasks:
+    - include_vars: /mnt/vagrant/ansible-sample/roles/provision-ec2-instance/vars/webservers.yml
+   roles:
+   - provision-ec2-instance
+
+ - hosts: webservers
+   gather_facts: true
+   user: ubuntu
+   become: yes
+   roles:
+   - nginx
+
+ - hosts: ec2
+   gather_facts: true
+   user: ubuntu
+   become: yes
+   pre_tasks:
+   - include_vars: /mnt/vagrant/ansible-sample/roles/provision-ec2-instance/vars/haproxyserver.yml
+   roles:
+   - haproxy

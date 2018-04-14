@@ -1,0 +1,39 @@
+---
+   - name: Dump all vars
+     action: template src=templates/dumpall.j2 dest=/tmp/ansible.all
+
+   - name: 'Set Debian/Ubuntu directory prefix'
+     set_fact:
+       etc_prefix: "/etc"
+     when: ansible_os_family == "Debian"
+
+   - name: 'Set Debian/Ubuntu haproxy config location'
+     set_fact:
+       config_location: "/etc/haproxy/haproxy.cfg"
+     when: ansible_os_family == "Debian"
+
+   - name: 'Add haproxy apt repo'
+     sudo: yes
+     apt_repository:
+      repo: "ppa:vbernat/haproxy-1.5"
+      state: present
+      update_cache: yes
+     when: ansible_distribution == "Ubuntu"
+
+   - name: 'Installs haproxy'
+     apt:
+       pkg: haproxy
+       state: latest
+     when: ansible_os_family == 'Debian'
+
+   - name: 'Enable it'
+     service:
+       name: haproxy
+       enabled: yes
+
+   - name: Update HAProxy config
+     template: src=templates/haproxy.cfg 
+           dest=/etc/haproxy/haproxy.cfg 
+           backup=yes
+     notify: 
+       - restart haproxy
